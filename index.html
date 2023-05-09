@@ -1,40 +1,164 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+	<title>reveal.js</title>
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/white.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h2>Jounery to Micro Frontends</h2>
+			</section>
+			<section>
+				<h2>Hey, I'm Razvan</h2>
+				<h3>Software Engineer @ 8x8</h3>
+			</section>
+			<section>
+				<h2>Content </h2>
+				<ul>
+					<li>
+						Evolution of software architecture
+					</li>
+					<li>
+						What is micro frontends?
+					</li>
+
+				</ul>
+				<br />
+
+			</section>
+			<section>
+				<section>
+
+					<h2>Evolution of software architecture</h2>
+					<aside class="notes">
+						<ul>
+							<li>
+								we are going to talk about the evolution of software architecture,from monolithic to micro frontends
+							</li>
+							<li>
+								we want to see how we got to micro frontends and why
+							</li>
+						</ul>
+				</section>
+
+				<section>
+					<figure>
+						<img src="assets/intro/arhitecture-characteristics.png" width="80%" alt="arhitecture-characteristics" />
+						<figcaption>
+							Fundamentals of Software Architecture by Mark Richards and Neal Ford 
+							<a href="https://yoan-thirion.gitbook.io/knowledge-base/software-architecture/fundamentals-of-software-architecture">Book link</a>
+						</figcaption>
+					</figure>
+
+					<aside class="notes">
+						<ul>
+							<li>
+								Avalability - the system is available to the users 24/7
+							</li>
+							<li>
+								Reliability - the system is reliable and can recover from failures
+							</li>
+							<li>
+								Testability - the system is testable
+							</li>
+							<li>
+								Scalability - the system can handle the load and can scale horizontally
+							</li>
+							<li>
+								Security - the system is secure
+							</li>
+							<li>
+								Agility - the system is agile and can be changed fast
+							</li>
+							<li>
+								Fault tolerance - the system can handle failures
+							</li>
+							<li>
+								Elasticity - the system can scale up and down based on the load
+							</li>
+							<li>
+								Recoverability - the system can recover from failures
+							</li>
+							<li>
+								Performance - the system is performant
+							</li>
+							<li>
+								Deployability - the system can be deployed fast
+							</li>
+							<li>
+								Learnability - the system is easy to learn
+							</li>
+						</ul>
+					</aside>
+
+				</section>
+
+				<section>
+					<h2>Monolithic architecture</h2>
+					<img src="assets/intro/monotithic-fig.png" alt="monolithic" />
+
+					<aside class="notes" data-markdown>
+						- Most of companies have a monolithic architecture. 
+						- This means we one singple application and the frontend and backend are included in the same application.
+					</aside>
+
+				</section>
+
+
+				<section>
+					<h3>1.1 Independent deployments</h3>
+					<p>
+						Each team can deploy their part of the application independently. This is a huge win for teams that
+						operate independently and want to move fast.
+					</p>
+				</section>
+			</section>
+
+
+			<section>
+				<h2>What is a micro frontend?</h2>
+				<section>
+					1.1 similiar to microservices
+					1.2 Like youtube embedded video or an iframe from other website
+					1.3 The term Micro Frontends first came up in
+					<a href="https://www.thoughtworks.com/radar/techniques/micro-frontends">ThoughtWorks Technology Radar</a> at
+					the
+					end of 2016. It extends the concepts of micro services to the frontend world.
+				</section>
+			</section>
+
+
 		</div>
+	</div>
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
 </html>
