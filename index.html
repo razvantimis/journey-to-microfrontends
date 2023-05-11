@@ -5,11 +5,12 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<title>reveal.js</title>
+	<title>Journey to Micro Frontends</title>
 
 	<link rel="stylesheet" href="dist/reset.css">
 	<link rel="stylesheet" href="dist/reveal.css">
 	<link rel="stylesheet" href="dist/theme/white.css">
+	<link rel="stylesheet" href="style.css">
 
 	<!-- Theme used for syntax highlighted code -->
 	<link rel="stylesheet" href="plugin/highlight/monokai.css">
@@ -18,12 +19,43 @@
 <body>
 	<div class="reveal">
 		<div class="slides">
-			<section>
-				<h2>Jounery to Micro Frontends</h2>
+			<section centre>
+				<h2>Journey to Micro Frontends</h2>
 			</section>
 			<section>
-				<h2>Hey, I'm Razvan</h2>
-				<h3>Software Engineer @ 8x8</h3>
+				<section>
+					<h2>Hey, I'm Razvan</h2>
+					<ul>
+						<li>Software engineering @8x8 / Contact Center  </li>
+						<li>Frontend developer from highschool</li>
+						<li>Started working in companies from 2016</li>
+						<li>More at <a target="_blank" href="https://timis.dev">timis.dev</a></li>
+					</ul>
+					<aside class="notes" data-markdown>
+						- I am working at 8x8 in contact center
+						- I wrote my first line of code in 2012 when I built a website for me with ucoz. I was like hobby
+						- I started having a full time job in 2016
+					</aside>
+				</section>
+
+				<section>
+					<h2>&#10084;&#65039; travelling</h2>
+					<img src="assets/me/australia.jpeg" width="70%" alt="backpack" />
+					<img src="assets/me/backpack.jpeg" style="z-index: 1; right: 0; position: absolute;" width="30%" alt="backpack" />
+					<aside class="notes" data-markdown>
+						- I was in Asia for 3 months and I love traveling and nature
+						- Also I love being in the nature
+					</aside>
+				</section>
+				<section>
+					<h2>Investing</h2>
+					<img src="assets/me/investing.webp" width="100%" alt="investing" />
+					<aside class="notes" data-markdown>
+             - I started investing in 2018 and I am still learning
+						 - My goal is to be financially independent following dividend stock strategy ( Dividend growth investing )
+					</aside>
+				</section>
+
 			</section>
 			<section>
 				<h2>Content </h2>
@@ -43,7 +75,8 @@
 				<section>
 					<h2>Evolution of software architecture</h2>
 					<aside class="notes" data-markdown>
-						- we are going to talk about the evolution of software architecture,from monolithic to micro frontends
+						- we are going to talk about the evolution of software architecture,from monolithic to micro frontends /
+						services
 						- we want to see how we got to micro frontends and why
 					</aside>
 				</section>
@@ -114,6 +147,11 @@
 
 		</div>
 	</div>
+	<footer class="footer-8x8">
+		<img src="assets/8x8-brand.png" alt="8x8" />
+		<span>Copyright 2023 8x8, Inc. or its affiliates. All right reserved.</span>
+	</footer>
+
 
 	<script src="dist/reveal.js"></script>
 	<script src="plugin/notes/notes.js"></script>
@@ -125,7 +163,7 @@
 		// - https://revealjs.com/config/
 		Reveal.initialize({
 			hash: true,
-
+			// center: false,
 			// Learn about plugins: https://revealjs.com/plugins/
 			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
 		});

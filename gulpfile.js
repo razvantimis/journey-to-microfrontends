@@ -286,7 +286,7 @@ gulp.task('package', gulp.series(() =>
 
 ))
 
-gulp.task('reload', () => gulp.src(['**/*.html', '**/*.md'])
+gulp.task('reload', () => gulp.src(['index.html'])
     .pipe(connect.reload()));
 
 gulp.task('serve', () => {
@@ -298,7 +298,7 @@ gulp.task('serve', () => {
         livereload: true
     })
 
-    gulp.watch(['**/*.html', '**/*.md'], gulp.series('reload'))
+    gulp.watch(['index.html'], gulp.series('reload'))
 
     gulp.watch(['js/**'], gulp.series('js', 'reload', 'eslint'))
 
