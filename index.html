@@ -26,7 +26,7 @@
 				<section>
 					<h2>Hey, I'm Razvan</h2>
 					<ul>
-						<li>Software engineering @8x8 / Contact Center  </li>
+						<li>Software engineering @8x8 / Contact Center </li>
 						<li>Frontend developer from highschool</li>
 						<li>Started working in companies from 2016</li>
 						<li>More at <a target="_blank" href="https://timis.dev">timis.dev</a></li>
@@ -41,7 +41,8 @@
 				<section>
 					<h2>&#10084;&#65039; travelling</h2>
 					<img src="assets/me/australia.jpeg" width="70%" alt="backpack" />
-					<img src="assets/me/backpack.jpeg" style="z-index: 1; right: 0; position: absolute;" width="30%" alt="backpack" />
+					<img src="assets/me/backpack.jpeg" style="z-index: 1; right: 0; position: absolute;" width="30%"
+						alt="backpack" />
 					<aside class="notes" data-markdown>
 						- I was in Asia for 3 months and I love traveling and nature
 						- Also I love being in the nature
@@ -51,24 +52,41 @@
 					<h2>Investing</h2>
 					<img src="assets/me/investing.webp" width="100%" alt="investing" />
 					<aside class="notes" data-markdown>
-             - I started investing in 2018 and I am still learning
-						 - My goal is to be financially independent following dividend stock strategy ( Dividend growth investing )
+						- I started investing in 2018 and I am still learning
+						- My goal is to be financially independent following dividend stock strategy ( Dividend growth investing )
 					</aside>
 				</section>
 
 			</section>
 			<section>
-				<h2>Content </h2>
-				<ul>
-					<li>
-						Evolution of software architecture
-					</li>
-					<li>
-						What is micro frontends?
-					</li>
+				<section>
+					<h2>Course overview </h2>
+					<p>The goal is to understand the micro frontend architecture in combination modern frameworks, and to explore
+						the advantages and disadvantages associated with its implementation</p>
+				</section>
+				<section>
+					<h2>Around 3h</h2>
+					<ul>
+						<li>Evolution of software architecture ~15min</li>
+						<li>Micro frontends ~15min</li>
+						<li>Implementation micro frontends ~20min</li>
+						<li>Workshop ~2h</li>
+					</ul>
+					<aside class="notes" data-markdown>
+						- we are going to talk about the evolution of software architecture,from monolithic to micro frontends /
+						services
+						- we want to see how we got to micro frontends and why
+					</aside>
+				</section>
+				<section>
+					<h2>Workshop</h2>
+					<ul>
+						<li>Build multiple micro frontend applications</li>
+						<li>Use different frameworks</li>
+						<li>Comunication between micro frontends</li>
+					</ul>
+				</section>
 
-				</ul>
-				<br />
 
 			</section>
 			<section>
@@ -81,7 +99,7 @@
 					</aside>
 				</section>
 
-				<section>
+				<section data-visibility="hidden">
 					<figure>
 						<img src="assets/intro/arhitecture-characteristics.png" width="80%" alt="arhitecture-characteristics" />
 						<figcaption>
@@ -117,34 +135,197 @@
 					<aside class="notes" data-markdown>
 						- Most of companies have a monolithic architecture.
 						- This means we one singple application and the frontend and backend are included in the same application.
+						- We have one application that does everything, from connectiong to the database, to rendering the frontend
+						ref: https://inviqa.com/blog/decoupled-architecture-how-modernise-your-frontend
+						- Limitations:
+						- problematic to scale and maintain
+						- difficult to deploy
+						- difficult to test
+						- difficult to understand
+
 					</aside>
 
 				</section>
-
-
 				<section>
-					<h3>1.1 Independent deployments</h3>
+					<h3>Frontend and Backend split</h3>
+					<img src="assets/architecture/frontend-backend.jpeg" alt="frontend backend" />
+					<aside class="notes" data-markdown>
+						- We can split the frontend and backend in 2 different applications
+						- This is a good start but we still have a monolithic architecture
+						- The communication between the frontend and backend is done via HTTP or websockets
+						- We can choose different technologies for the frontend and backend
+						- We can scale the frontend and backend independently
+					</aside>
+				</section>
+				<section>
+					<h3>Microservices / Micro frontends</h3>
+					<img src="assets/architecture/micro-frontends.webp" alt="micro frontend / microservices" width="70%" />
+					<aside class="notes" data-markdown>
+						- We can split the frontend and backend in multiple applications
+						- Each application is independent and own by a team
+					</aside>
+				</section>
+
+			</section>
+			<section>
+				<section>
+					<h2>Micro frontends</h2>
+				</section>
+				<section>
+					<h2>What are micro frontends?</h2>
+					<aside class="notes" data-markdown>
+						- Do you know when the term micro frontends was first used?
+					</aside>
+				</section>
+				<section>
+					<p>The term Micro Frontends first came up in
+						<a href="https://www.thoughtworks.com/radar/techniques/micro-frontends">ThoughtWorks Technology Radar</a>
+						at
+						the
+						end of 2016. By a radom guy on the internet
+					</p>
+					<aside class="notes" data-markdown>
+						- he was a random guy
+						- Micro frontends are a way of breaking up large frontend applications into smaller, more manageable
+						- It extends the concepts of micro services to the frontend world.
+					</aside>
+				</section>
+				<section data-visibility="hidden">
+					<h3>What are micro frontends?</h3>
+					<div class="r-stack">
+						<img class="fragment" src="assets/microfrontend/flash.svg" alt="micro frontends" />
+						<pre class="fragment"><code data-line-numbers class="language-html" style="white-space: pre-wrap;"><embed 
+	id="flashplayer"
+	type="application/x-shockwave-flash" 
+	data="assets/duck-life.swf"
+	width="600"
+	height="480">
+	<param 
+		name="allowscriptaccess" 
+		value="always" >
+						</embed>
+</code></pre>
+					</div>
+
+				</section>
+				<section>
+					<h3>What are micro frontends?</h3>
+					<div class="r-stack">
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/u-pP_dCenJA"
+							title="YouTube video player" frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							allowfullscreen></iframe>
+						<pre class="fragment" style="z-index:9999"><code data-line-numbers class="language-html" ><iframe
+									width="560" 
+									height="315"
+									src="https://www.youtube.com/embed/..."
+							>
+</iframe>
+</code></pre>
+						<aside class="notes" data-markdown>
+							- What do you think, is this a micro frontend?
+							- It is a flash embeded in a html page
+							- It is a micro frontend because it is a small part of the page
+						</aside>
+				</section>
+				<section>
+					<h2>What are micro frontends?</h2>
 					<p>
-						Each team can deploy their part of the application independently. This is a huge win for teams that
-						operate independently and want to move fast.
+						Small frontend applications that are composed into a bigger application and each small application is
+						deployable independently.
 					</p>
 				</section>
-			</section>
-
-
-			<section>
-				<h2>What is a micro frontend?</h2>
 				<section>
-					1.1 similiar to microservices
-					1.2 Like youtube embedded video or an iframe from other website
-					1.3 The term Micro Frontends first came up in
-					<a href="https://www.thoughtworks.com/radar/techniques/micro-frontends">ThoughtWorks Technology Radar</a> at
-					the
-					end of 2016. It extends the concepts of micro services to the frontend world.
+					<h2>Why micro frontends?</h2>
+					<ul>
+						<li class="fragment">Incremental upgrades</li>
+						<li class="fragment">Faster delivery</li>
+						<li class="fragment">More scalable organisations with decoupled, autonomous teams</li>
+						<li class="fragment">Reducer scope</li>
+						<li class="fragment">Independent deployments</li>
+					</ul>
+					<aside class="notes" data-markdown>
+						- Incremental upgrades:
+						- Incremental upgrades: We are able to upgrade a part of the application without affecting the rest of the application
+						- Incremental upgrades:: smaller, more cohesive and maintainable codebases
+						- Incremental upgrades:: If we are talking about dependency upgrade, we can upgrade only the part that needs the upgrade
+						- More scalable organisations with decoupled, autonomous teams:
+						- More scalable organisations: We can have multiple teams working on the same application
+						- More scalable organisations: Each team can work on a different part of the application
+						- More scalable organisations: Each team can use a different technology stack
+						- More scalable organisations: Each team can deploy their part of the application independently
+						- Reducer scope
+						- Reducer scope: its more easy to understand a small codebase for new developers
+						- Reducer scope: its more easy to maintain a small codebase
+						- Reducer scope: its more easy to test a small codebase
+						- Independent deployment:
+						- Independent deployment: We can deploy each part of the application independently and at a different time
+						- Independent deployment: rollbacks independently
+						- Independent deployment: We can have separate CI/CD
+					</aside>
+				</section>
+				<section>
+					<h3>Cross functional team</h3>
+					<img src="assets/microfrontend/cross-functional-team.png" alt="cross functional team" />
+					<span style="font-size: 20px">Source: <a href="https://micro-frontends.org">https://micro-frontends.org</a></span> 
+				</section>
+				<section>
+					<h3>Drawbacks of micro frontend</h3>
+					<ul>
+						<li class="fragment">Performance overhead</li>
+						<li class="fragment">Increased complexity & learning curve</li>
+						<li class="fragment">Requires additional tooling</li>
+						<li class="fragment">Team size</li>
+				</section>
+				<section>
+					<h2>Recap</h2>
+					<p>In short, micro frontends are all about slicing up big and scary things into smaller, more manageable pieces.</p>
+				</section>
+				<section>
+					<h2>Q&A</h2>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Implementation micro frontends</h2>
+
+					<aside class="notes" data-markdown>
+						- How do we implement micro frontends?
+						- How do we compose multiple micro frontends into a bigger application?
+						- How do we communicate between micro frontends?
+					</aside>
 				</section>
 			</section>
 
-
+			<section>
+				<section>
+					<h2>Workshop</h2>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Q&A</h2>
+				</section>
+				<section>
+					<h2>References</h2>
+					<ul>
+						<li>
+							<a href="https://inviqa.com/blog/decoupled-architecture-how-modernise-your-frontend">Decoupled
+								architecture</a>
+						</li>
+						<li>
+							<a href="https://www.thoughtworks.com/radar/techniques/micro-frontends">Micro frontends</a>
+						</li>
+						<li>
+							<a href="https://micro-frontends.org/">Micro frontends</a>
+						</li>
+						<li>
+							<a href="https://www.manning.com/books/micro-frontends-in-action">Micro Frontends in Action by Michael
+								Geers</a>
+						</li>
+					</ul>
+				</section>
+			</section>
 		</div>
 	</div>
 	<footer class="footer-8x8">
