@@ -327,6 +327,146 @@
 					</aside>
 				</section>
 				<section>
+					<img src="assets/implement/tractor-store.png" alt="tractor store">
+					<span style="font-size: 20px; display: block;"><a
+							href="https://github.com/naltatis/micro-frontends-in-action-code">Github code</a></span>
+					<aside class="notes" data-markdown>
+						- let start with an example
+						- We have a tractor store
+						- We have the product details page, where we list all the tractors
+						- We have the recomandation section, where we can see the recomandation for the tractors
+
+					</aside>
+				</section>
+				<section>
+					<h2>Integration approaches</h2>
+					<aside class="notes" data-markdown>
+						- There are different ways to integrate micro frontends
+						- We can use iframes
+						- We can use web components
+						- We can use server side includes
+						- We can use client side includes
+						- We can use a combination of the above
+				</section>
+				<section>
+					<h4>Server-side composition</h4>
+					<div class="r-stack">
+						<img src="assets/implement/server-side-integration.png" width="60%" alt="server side integration" />
+						<pre class="fragment"><code data-trim="">
+	<aside class="decide_recos">
+		<!--#include virtual="/inspire/fragment/recommendations/porsche" -->
+	</aside>
+						</code></pre>
+					</div>
+
+					<aside class="notes" data-markdown>
+						- The second approach is to use server side composition
+						- We are using ng config to configure the server to include the micro frontends
+					</aside>
+				</section>
+				<section>
+					<h4>Build-time integration</h4>
+					<pre><code data-trim class="language-json">
+						{
+							"name": "@tractor/container",
+							"version": "1.0.0",
+							"description": "A tractor store",
+							"dependencies": {
+								"@tractor/decide": "^1.2.3",
+								"@tractor/inspire": "^7.8.9"
+							}
+						}
+					</code>
+					</pre>
+					<aside class="notes" data-markdown>
+						- publish each micro frontend as a package, and have the container application include them all as library
+						dependencies
+						- This approach is similar to how we would build a monolithic application, but instead of including the
+						source code of each micro frontend, we include the compiled version of each micro frontend.
+					</aside>
+				</section>
+				<section>
+					<h4>Run-time integration via links</h4>
+					<img src="assets/implement/two-team-tractor-store-links.png" alt="two team tractor store links" />
+					<aside class="notes" data-markdown>
+						- The first approach is to use links
+						- Its the simplest approach
+					</aside>
+				</section>
+				<section>
+					<h3>Run-time integration via iframes</h3>
+					<img src="assets/implement/iframe-integration.png" width="60%" alt="iframe " />
+					<aside class="notes" data-markdown>
+						- We can use iframes to integrate micro frontends
+						- offer a good degree of isolation in terms of styling and global variables not interfering with each other
+						- Cons: layout constraints - automatic iframe height adjustment is not possible
+						- Cons: they make routing, history, and deep-linking more complicated
+						- Cons: the performance of iframes is not as good as other integration approaches
+						- Cons: WCAG is not good in iframes
+						- Cons: SEO is not good in iframes
+						- Iframe makes sens when we have a desktop application like Spotify or 8x8 Work
+				</section>
+				<section>
+					<h4>Run-time integration via Web Components</h4>
+					<div class="r-stack">
+						<img src="assets/implement/web-component-integration.png" width="80%" alt="web components" />
+						<pre class="fragment">
+							<code data-trim>
+									 <!-- These scripts don't render anything immediately -->
+										<script src="https://decide.example.com/bundle.js"></script>
+										<script src="https://checkout.example.com/bundle.js"></script>
+										<script src="https://inspire.example.com/bundle.js"></script>
+							</code>
+							</pre>
+						<pre class="fragment"><code data-trim class="language-html">
+							<div class="decide_details">
+								<checkout-buy sku="fendt"></checkout-buy>
+							</div>
+							<aside class="decide_recos">
+								<inspire-recommendations sku="fendt"></inspire-recommendations>
+							</aside>
+	</code>
+	</pre>
+					</div>
+					<aside class="notes" data-markdown>
+						-
+					</aside>
+				</section>
+				<section>
+					<h4>Run-time integration via JavaScript</h4>
+					<pre class="fragment">
+						<code data-trim>
+							   <!-- These scripts don't render anything immediately -->
+									<script src="https://decide.example.com/bundle.js"></script>
+									<script src="https://checkout.example.com/bundle.js"></script>
+									<script src="https://inspire.example.com/bundle.js"></script>
+						</code>
+						</pre>
+					<pre class="fragment">
+							<code data-trim>
+<div id="micro-frontend-root"></div>
+<script type="text/javascript">
+	// These global functions are attached to window by the above scripts
+	const root = document.getElementById('micro-frontend-root')
+	window.renderDecide(root);
+	window.renderCheckout(root);
+	window.renderInspire(root);
+</script>
+							</code>
+							</pre>
+
+					<aside class="notes" data-markdown>
+						- is probably the most flexible one
+						- we have a shell app which is responsible for loading the micro frontends
+					</aside>
+				</section>
+			</section>
+
+			<section>
+				<section>
+					<h2>Workshop</h2>
+				</section>
+				<section>
 					<h3>The tractor store</h3>
 					<!-- <img src="assets/implement/website-trators.png" width="70%" alt="product"> -->
 					<iframe src="https://micro-frontends.org/0-model-store/" width="1200px" height="500px" frameborder="0"
@@ -356,119 +496,6 @@
 						- each team is responsible for a part of the application
 					</aside>
 				</section>
-				<section>
-					<h2>Integration approaches</h2>
-					<aside class="notes" data-markdown>
-						- There are different ways to integrate micro frontends
-						- We can use iframes
-						- We can use web components
-						- We can use server side includes
-						- We can use client side includes
-						- We can use a combination of the above
-				</section>
-				<section>
-					<h2>Server-side template composition</h2>
-					<aside class="notes" data-markdown>
-						- Server-side template composition is a technique where the server is responsible for composing the UI
-					</aside>
-				</section>
-				<section>
-					<h2>Build-time integration</h2>
-					<pre><code data-trim class="language-json">
-						{
-							"name": "@tractor/container",
-							"version": "1.0.0",
-							"description": "A tractor store",
-							"dependencies": {
-								"@tractor/product": "^1.2.3",
-								"@tractor/checkout": "^4.5.6",
-								"@tractor/inspire": "^7.8.9"
-							}
-						}
-					</code>
-					</pre>
-					<aside class="notes" data-markdown>
-						- publish each micro frontend as a package, and have the container application include them all as library
-						dependencies
-						- This approach is similar to how we would build a monolithic application, but instead of including the
-						source code of each micro frontend, we include the compiled version of each micro frontend.
-					</aside>
-				</section>
-				<section>
-					<h2>Run-time integration via iframes</h2>
-
-					<aside class="notes" data-markdown>
-						- We can use iframes to integrate micro frontends
-						- offer a good degree of isolation in terms of styling and global variables not interfering with each other
-						- they make routing, history, and deep-linking more complicated
-						- the performance of iframes is not as good as other integration approaches
-						- WCAG is not good in iframes
-				</section>
-				<section>
-					<h2>Run-time integration via JavaScript</h2>
-					<pre class="fragment">
-						<code data-trim>
-							   <!-- These scripts don't render anything immediately -->
-									<script src="https://product.example.com/bundle.js"></script>
-									<script src="https://checkout.example.com/bundle.js"></script>
-									<script src="https://inspire.example.com/bundle.js"></script>
-						</code>
-						</pre>
-					<pre class="fragment">
-							<code data-trim>
-<div id="micro-frontend-root"></div>
-<script type="text/javascript">
-	// These global functions are attached to window by the above scripts
-	const root = document.getElementById('micro-frontend-root')
-	window.renderProduct(root);
-	window.renderCheckout(root);
-	window.renderInspire(root);
-</script>
-							</code>
-							</pre>
-
-					<aside class="notes" data-markdown>
-						- is probably the most flexible one
-						- we have a shell app which is responsible for loading the micro frontends
-					</aside>
-				</section>
-
-				<section>
-					<h3>Run-time integration via Web Components</h3>
-					<pre class="fragment">
-						<code data-trim>
-							   <!-- These scripts don't render anything immediately -->
-									<script src="https://product.example.com/bundle.js"></script>
-									<script src="https://checkout.example.com/bundle.js"></script>
-									<script src="https://inspire.example.com/bundle.js"></script>
-						</code>
-						</pre>
-					<pre class="fragment"><code data-trim class="language-html">
-<div id="micro-frontend-root"></div>
-<script type="text/javascript">
-	const root = document.getElementById('micro-frontend-root');
-
-	const productComponent = document.createElement('product-component');
-	const checkoutComponent = document.createElement('checkout-component');
-	const inspireComponent = document.createElement('inspire-component');
-	
-	root.appendChild(productComponent);
-	root.appendChild(checkoutComponent);
-	root.appendChild(inspireComponent);
-</script>
-</code>
-</pre>
-
-					<aside class="notes" data-markdown>
-						-
-					</aside>
-				</section>
-			</section>
-
-			<section>
-				<section>
-					<h2>Workshop</h2>
-				</section>
 			</section>
 			<section>
 				<section>
@@ -490,6 +517,9 @@
 						<li>
 							<a href="https://www.manning.com/books/micro-frontends-in-action">Micro Frontends in Action by Michael
 								Geers</a>
+						</li>
+						<li>
+							<a href="hhttps://the-tractor.store/#1">The tractor store examples</a>
 						</li>
 					</ul>
 				</section>
