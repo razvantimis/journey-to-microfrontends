@@ -69,7 +69,7 @@
 					<ul>
 						<li>Evolution of software architecture ~15min</li>
 						<li>Micro frontends ~15min</li>
-						<li>Implementation micro frontends ~20min</li>
+						<li>Implementation of micro frontends ~20min</li>
 						<li>Workshop ~2h</li>
 					</ul>
 					<aside class="notes" data-markdown>
@@ -246,9 +246,11 @@
 					</ul>
 					<aside class="notes" data-markdown>
 						- Incremental upgrades:
-						- Incremental upgrades: We are able to upgrade a part of the application without affecting the rest of the application
+						- Incremental upgrades: We are able to upgrade a part of the application without affecting the rest of the
+						application
 						- Incremental upgrades:: smaller, more cohesive and maintainable codebases
-						- Incremental upgrades:: If we are talking about dependency upgrade, we can upgrade only the part that needs the upgrade
+						- Incremental upgrades:: If we are talking about dependency upgrade, we can upgrade only the part that needs
+						the upgrade
 						- More scalable organisations with decoupled, autonomous teams:
 						- More scalable organisations: We can have multiple teams working on the same application
 						- More scalable organisations: Each team can work on a different part of the application
@@ -267,19 +269,47 @@
 				<section>
 					<h3>Cross functional team</h3>
 					<img src="assets/microfrontend/cross-functional-team.png" alt="cross functional team" />
-					<span style="font-size: 20px">Source: <a href="https://micro-frontends.org">https://micro-frontends.org</a></span> 
+					<span style="font-size: 20px">Source: <a
+							href="https://micro-frontends.org">https://micro-frontends.org</a></span>
 				</section>
 				<section>
 					<h3>Drawbacks of micro frontend</h3>
 					<ul>
-						<li class="fragment">Performance overhead</li>
 						<li class="fragment">Increased complexity & learning curve</li>
+						<li class="fragment">Performance overhead</li>
+						<li class="fragment">Cross-team coordination</li>
 						<li class="fragment">Requires additional tooling</li>
-						<li class="fragment">Team size</li>
+					</ul>
+					<aside class="notes" data-markdown>
+						- Increased complexity: Micro frontend introduces additional complexity to the development process. Managing
+						multiple independent front-end applications requires coordination, communication, and synchronization among
+						teams. This complexity can lead to a steeper learning curve and higher maintenance overhead.
+
+						- Performance overhead: Since micro frontends involve multiple independent applications, there can be an
+						increase in the number of requests and payload size, potentially impacting performance. This can result in
+						slower page loading times and increased network latency.
+
+						- Cross-team coordination: As each micro frontend is developed and maintained by a separate team, there is a
+						need for effective collaboration and coordination among teams. Ensuring consistency in design, user
+						experience, and shared dependencies can be challenging and may require additional communication efforts.
+
+						- Browser compatibility: Different micro frontends may rely on different frameworks, libraries, and
+						dependencies, which can lead to compatibility issues across browsers. Ensuring consistent behavior and
+						compatibility across different micro frontends can be a complex task.
+
+						- Deployment complexity: Deploying and managing multiple independent micro frontends can be more complex than
+						deploying a monolithic application. Coordinating deployments, handling versioning, and managing
+						compatibility among micro frontends can add complexity to the deployment process.
+
+						- Increased resource consumption: Each micro frontend requires its own resources, such as memory and
+						processing power. As the number of micro frontends grows, the overall resource consumption of the system may
+						increase, potentially impacting scalability and cost.
+					</aside>
 				</section>
 				<section>
 					<h2>Recap</h2>
-					<p>In short, micro frontends are all about slicing up big and scary things into smaller, more manageable pieces.</p>
+					<p>In short, micro frontends are all about slicing up big and scary things into smaller, more manageable
+						pieces.</p>
 				</section>
 				<section>
 					<h2>Q&A</h2>
@@ -287,12 +317,28 @@
 			</section>
 			<section>
 				<section>
-					<h2>Implementation micro frontends</h2>
+					<h2>Implementation of micro frontends</h2>
 
 					<aside class="notes" data-markdown>
 						- How do we implement micro frontends?
 						- How do we compose multiple micro frontends into a bigger application?
 						- How do we communicate between micro frontends?
+					</aside>
+				</section>
+				<section>
+					<h3>The tractor store</h3>
+					<img src="assets/microfrontend/three-teams-product.png" width="70%" alt="product">
+					<span style="font-size: 20px; display: block;">Live code <a
+							href="https://micro-frontends.org/0-model-store/">Model store</a></span>
+					<aside class="notes" data-markdown>
+						- let start with an example
+					</aside>
+				</section>
+				<section>
+					<h3>We have three teams</h3>
+					<img src="assets/microfrontend/verticals-teams.png" alt="verticals-teams">
+					<aside class="notes" data-markdown>
+						- let start with an example
 					</aside>
 				</section>
 			</section>
