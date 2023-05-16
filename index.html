@@ -297,7 +297,8 @@
 						dependencies, which can lead to compatibility issues across browsers. Ensuring consistent behavior and
 						compatibility across different micro frontends can be a complex task.
 
-						- Deployment complexity: Deploying and managing multiple independent micro frontends can be more complex than
+						- Deployment complexity: Deploying and managing multiple independent micro frontends can be more complex
+						than
 						deploying a monolithic application. Coordinating deployments, handling versioning, and managing
 						compatibility among micro frontends can add complexity to the deployment process.
 
@@ -327,11 +328,18 @@
 				</section>
 				<section>
 					<h3>The tractor store</h3>
-					<img src="assets/microfrontend/three-teams-product.png" width="70%" alt="product">
+					<!-- <img src="assets/implement/website-trators.png" width="70%" alt="product"> -->
+					<iframe src="https://micro-frontends.org/0-model-store/" width="1200px" height="500px" frameborder="0"
+						style="zoom: 0.9;"></iframe>
 					<span style="font-size: 20px; display: block;">Live code <a
 							href="https://micro-frontends.org/0-model-store/">Model store</a></span>
 					<aside class="notes" data-markdown>
 						- let start with an example
+						- We have a tractor store, where we sell tractors
+						- We have the product list page, where we list all the tractors
+						- We have the buy button and busket, where we can buy the tractors
+						- We have the recomandation section, where we can see the recomandation for the tractors
+
 					</aside>
 				</section>
 				<section>
@@ -339,6 +347,120 @@
 					<img src="assets/microfrontend/verticals-teams.png" alt="verticals-teams">
 					<aside class="notes" data-markdown>
 						- let start with an example
+					</aside>
+				</section>
+				<section>
+					<h3>The tractor store</h3>
+					<img src="assets/microfrontend/three-teams-product.png" width="70%" alt="product">
+					<aside class="notes" data-markdown>
+						- each team is responsible for a part of the application
+					</aside>
+				</section>
+				<section>
+					<h2>Integration approaches</h2>
+					<aside class="notes" data-markdown>
+						- There are different ways to integrate micro frontends
+						- We can use iframes
+						- We can use web components
+						- We can use server side includes
+						- We can use client side includes
+						- We can use a combination of the above
+				</section>
+				<section>
+					<h2>Server-side template composition</h2>
+					<aside class="notes" data-markdown>
+						- Server-side template composition is a technique where the server is responsible for composing the UI
+					</aside>
+				</section>
+				<section>
+					<h2>Build-time integration</h2>
+					<pre><code data-trim class="language-json">
+						{
+							"name": "@tractor/container",
+							"version": "1.0.0",
+							"description": "A tractor store",
+							"dependencies": {
+								"@tractor/product": "^1.2.3",
+								"@tractor/checkout": "^4.5.6",
+								"@tractor/inspire": "^7.8.9"
+							}
+						}
+					</code>
+					</pre>
+					<aside class="notes" data-markdown>
+						- publish each micro frontend as a package, and have the container application include them all as library
+						dependencies
+						- This approach is similar to how we would build a monolithic application, but instead of including the
+						source code of each micro frontend, we include the compiled version of each micro frontend.
+					</aside>
+				</section>
+				<section>
+					<h2>Run-time integration via iframes</h2>
+
+					<aside class="notes" data-markdown>
+						- We can use iframes to integrate micro frontends
+						- offer a good degree of isolation in terms of styling and global variables not interfering with each other
+						- they make routing, history, and deep-linking more complicated
+						- the performance of iframes is not as good as other integration approaches
+						- WCAG is not good in iframes
+				</section>
+				<section>
+					<h2>Run-time integration via JavaScript</h2>
+					<pre class="fragment">
+						<code data-trim>
+							   <!-- These scripts don't render anything immediately -->
+									<script src="https://product.example.com/bundle.js"></script>
+									<script src="https://checkout.example.com/bundle.js"></script>
+									<script src="https://inspire.example.com/bundle.js"></script>
+						</code>
+						</pre>
+					<pre class="fragment">
+							<code data-trim>
+<div id="micro-frontend-root"></div>
+<script type="text/javascript">
+	// These global functions are attached to window by the above scripts
+	const root = document.getElementById('micro-frontend-root')
+	window.renderProduct(root);
+	window.renderCheckout(root);
+	window.renderInspire(root);
+</script>
+							</code>
+							</pre>
+
+					<aside class="notes" data-markdown>
+						- is probably the most flexible one
+						- we have a shell app which is responsible for loading the micro frontends
+					</aside>
+				</section>
+
+				<section>
+					<h3>Run-time integration via Web Components</h3>
+					<pre class="fragment">
+						<code data-trim>
+							   <!-- These scripts don't render anything immediately -->
+									<script src="https://product.example.com/bundle.js"></script>
+									<script src="https://checkout.example.com/bundle.js"></script>
+									<script src="https://inspire.example.com/bundle.js"></script>
+						</code>
+						</pre>
+					<pre class="fragment"><code data-trim class="language-html">
+<div id="micro-frontend-root"></div>
+<script type="text/javascript">
+	const root = document.getElementById('micro-frontend-root');
+
+	const productComponent = document.createElement('product-component');
+	const checkoutComponent = document.createElement('checkout-component');
+	const inspireComponent = document.createElement('inspire-component');
+	
+	root.appendChild(productComponent);
+	root.appendChild(checkoutComponent);
+	root.appendChild(inspireComponent);
+</script>
+</code>
+</pre>
+
+					<aside class="notes" data-markdown>
+						-
 					</aside>
 				</section>
 			</section>
